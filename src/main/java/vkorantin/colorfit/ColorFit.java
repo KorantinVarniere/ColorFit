@@ -27,6 +27,4 @@ public class ColorFit extends Application {
 		stage.show();
 	}
 	
-	
-	
 }

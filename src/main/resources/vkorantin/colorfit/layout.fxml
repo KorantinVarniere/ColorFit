@@ -22,8 +22,8 @@
    <top>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0" BorderPane.alignment="CENTER">
          <children>
-            <Slider fx:id="color_slider" blockIncrement="1.0" max="10.0" min="1.0" prefHeight="75.0" prefWidth="300.0" value="5.0" />
-            <Label fx:id="color_label" alignment="CENTER" contentDisplay="CENTER" prefHeight="75.0" prefWidth="75.0" text="5" textAlignment="CENTER">
+            <Slider fx:id="color_slider" blockIncrement="1.0" max="6.0" min="2.0" prefHeight="75.0" prefWidth="300.0" value="4.0" />
+            <Label fx:id="color_label" alignment="CENTER" contentDisplay="CENTER" prefHeight="75.0" prefWidth="75.0" text="4" textAlignment="CENTER">
                <font>
                   <Font size="25.0" />
                </font>
