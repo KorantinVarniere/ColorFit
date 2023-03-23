@@ -1,9 +1,9 @@
 package vkorantin.colorfit;
 
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 public class ColorFit extends Application {
@@ -14,14 +14,11 @@ public class ColorFit extends Application {
 
 	@Override
 	public void start(Stage stage) throws Exception {
+		Parent root = FXMLLoader.load(getClass().getResource("layout.fxml"));
+		Scene scene = new Scene(root);
+		
 		stage.setTitle("ColorFit");
-		
-		StackPane root = new StackPane();
-		Label helloLabel = new Label("Hello World !");
-		root.getChildren().add(helloLabel);
-		
-		stage.setScene(new Scene(root, 1280, 720));
-		
+		stage.setScene(scene);
 		stage.show();
 	}
 	
