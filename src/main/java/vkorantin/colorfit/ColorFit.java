@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import vkorantin.colorfit.graphics.Graphics;
+import vkorantin.colorfit.model.Model;
 
 public class ColorFit extends Application {
 	
@@ -20,6 +21,7 @@ public class ColorFit extends Application {
 		Scene scene = new Scene(root, 1280, 720);
 		
 		Graphics.setupListeners(root);
+		Model.root = root;
 		
 		stage.setTitle("ColorFit");
 		stage.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));

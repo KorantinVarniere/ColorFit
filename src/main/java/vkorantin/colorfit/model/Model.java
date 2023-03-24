@@ -1,17 +1,23 @@
 package vkorantin.colorfit.model;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
 
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.FileChooser;
 import vkorantin.colorfit.graphics.Graphics;
 
 public abstract class Model {
 
+	public static Parent root;
 	private static Random rand = new Random();
 	public static List<Color> prevColors = new ArrayList<Color>();
 	
@@ -42,6 +48,27 @@ public abstract class Model {
 		});
 		
 		return colors;
+	}
+	
+	public static void export() {
+		List<Color> colors = getSortedColors();
+		
+		FileChooser chooser = new FileChooser();
+		File file = chooser.showSaveDialog(root.getScene().getWindow());
+		
+		List<String> toSave = new ArrayList<String>();
+		for (Color color: colors) {
+			toSave.add(color.toString());
+		}
+
+		try (FileWriter writer = new FileWriter(file)) {
+			for (String str : toSave) {
+				writer.write(str + System.lineSeparator());
+			}
+			writer.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 }

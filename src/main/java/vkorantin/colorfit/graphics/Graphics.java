@@ -18,7 +18,7 @@ public abstract class Graphics {
 	public static Slider colorSlider;
 	public static Label colorLabel;
 	public static HBox colorsBox, codesBox, greysBox;
-	public static Button backButton, generateButton;
+	public static Button importButton, backButton, generateButton, exportButton;
 	
 	public static void setupListeners(Parent root) {
 		colorSlider = (Slider) root.lookup("#color_slider");
@@ -26,8 +26,10 @@ public abstract class Graphics {
 		colorsBox = (HBox) root.lookup("#hbox_colors");
 		codesBox = (HBox) root.lookup("#hbox_codes");
 		greysBox = (HBox) root.lookup("#hbox_greys");
+		importButton = (Button) root.lookup("#import_btn");
 		generateButton = (Button) root.lookup("#generate_btn");
 		backButton = (Button) root.lookup("#back_btn");
+		exportButton = (Button) root.lookup("#export_btn");
 		
 		colorSlider.valueProperty().addListener(UpdateController.ColorSliderListener);
 		initialSetup(root);
@@ -35,13 +37,19 @@ public abstract class Graphics {
 	
 	private static void initialSetup(Parent root) {
 		updateColors();
-		generateButton.addEventHandler(MouseEvent.MOUSE_CLICKED, (event) -> {
-			updateColors();
+		importButton.addEventHandler(MouseEvent.MOUSE_CLICKED, (event) -> {
+			
 		});
 		backButton.addEventHandler(MouseEvent.MOUSE_CLICKED, (event) -> {
 			if (Model.prevColors.size() != 0) {
 				updateColors(Model.prevColors);
 			}
+		});
+		generateButton.addEventHandler(MouseEvent.MOUSE_CLICKED, (event) -> {
+			updateColors();
+		});
+		exportButton.addEventHandler(MouseEvent.MOUSE_CLICKED, (event) -> {
+			Model.export();
 		});
 	}
 	
