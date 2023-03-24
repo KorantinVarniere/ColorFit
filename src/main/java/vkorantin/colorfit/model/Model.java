@@ -1,6 +1,9 @@
 package vkorantin.colorfit.model;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -69,6 +72,33 @@ public abstract class Model {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public static void _import() {
+		List<String> toImport = new ArrayList<String>();
+		String line;
+		
+		FileChooser chooser = new FileChooser();
+		File file = chooser.showOpenDialog(root.getScene().getWindow());
+		
+		try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+			while ((line = reader.readLine()) != null) {
+				toImport.add(line);
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		Graphics.colorSlider.setValue(toImport.size());
+		
+		List<Color> colors = new ArrayList<Color>();
+		for (int i = 0; i < toImport.size(); i++) {
+			colors.add(Color.web(toImport.get(i)));
+		}
+		
+		Graphics.updateColors(colors);
 	}
 	
 }

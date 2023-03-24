@@ -38,7 +38,7 @@ public abstract class Graphics {
 	private static void initialSetup(Parent root) {
 		updateColors();
 		importButton.addEventHandler(MouseEvent.MOUSE_CLICKED, (event) -> {
-			
+			Model._import();
 		});
 		backButton.addEventHandler(MouseEvent.MOUSE_CLICKED, (event) -> {
 			if (Model.prevColors.size() != 0) {
