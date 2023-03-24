@@ -13,9 +13,9 @@
    <center>
       <VBox fx:id="vbox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" />
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" />
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" />
+            <HBox fx:id="hbox_colors" alignment="CENTER" prefHeight="200.0" prefWidth="200.0" spacing="100.0" />
+            <HBox fx:id="hbox_codes" alignment="CENTER" prefHeight="200.0" prefWidth="200.0" spacing="100.0" />
+            <HBox fx:id="hbox_greys" alignment="CENTER" prefHeight="200.0" prefWidth="200.0" spacing="100.0" />
          </children>
       </VBox>
    </center>

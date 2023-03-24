@@ -12,6 +12,7 @@ public abstract class UpdateController {
 		public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
 			if (newValue.intValue() != oldValue.intValue()) {
 				Graphics.colorLabel.setText(newValue.intValue() + "");
+				Graphics.updateColors();
 			}
 		}
 		

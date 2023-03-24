@@ -19,7 +19,7 @@ public class ColorFit extends Application {
 		Parent root = FXMLLoader.load(getClass().getResource("layout.fxml"));
 		Scene scene = new Scene(root, 1280, 720);
 		
-		Graphics.setup(root);
+		Graphics.setupListeners(root);
 		
 		stage.setTitle("ColorFit");
 		stage.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));
