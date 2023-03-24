@@ -67,7 +67,7 @@ public abstract class Graphics {
 		colorsBox.getChildren().clear();
 		codesBox.getChildren().clear();
 		greysBox.getChildren().clear();
-		
+				
 		for(int i = 0; i < (int) colorSlider.getValue(); ++i) {
 			Color color = Model.generateColor();
 			Color grey = Model.generateGreyFrom(color);
@@ -75,7 +75,7 @@ public abstract class Graphics {
 			codesBox.getChildren().add(new Label(String.format("(%d, %d, %d)", (int) (color.getRed()*255), (int) (color.getGreen()*255), (int) (color.getBlue()*255))));
 			greysBox.getChildren().add(new Rectangle(100, 100, grey));
 		}
-		
+				
 		sortColors();
 	}
 	
@@ -99,7 +99,7 @@ public abstract class Graphics {
 
 	private static void sortColors() {
 		List<Color> colors = Model.getSortedColors();
-		
+			
 		colorsBox.getChildren().clear();
 		codesBox.getChildren().clear();
 		greysBox.getChildren().clear();
