@@ -1,5 +1,7 @@
 package vkorantin.colorfit.graphics;
 
+import java.util.Random;
+
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
@@ -7,6 +9,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import vkorantin.colorfit.controllers.UpdateController;
+import vkorantin.colorfit.model.Model;
 
 public abstract class Graphics {
 	
@@ -33,10 +36,15 @@ public abstract class Graphics {
 		colorsBox.getChildren().clear();
 		codesBox.getChildren().clear();
 		greysBox.getChildren().clear();
+		
+		Random rand = new Random();
+		
 		for(int i = 0; i < (int) colorSlider.getValue(); ++i) {
-			colorsBox.getChildren().add(new Rectangle(100, 100, Color.AQUA));
-			codesBox.getChildren().add(new Label("(0, 0, 0)"));
-			greysBox.getChildren().add(new Rectangle(100, 100, Color.AQUA));
+			Color color = Model.generateColor();
+			Color grey = Model.generateGreyFrom(color);
+			colorsBox.getChildren().add(new Rectangle(100, 100, color));
+			codesBox.getChildren().add(new Label(String.format("(%d, %d, %d)", (int) (color.getRed()*255), (int) (color.getGreen()*255), (int) (color.getBlue()*255))));
+			greysBox.getChildren().add(new Rectangle(100, 100, grey));
 		}
 	}
 
