@@ -13,6 +13,7 @@ import vkorantin.colorfit.graphics.Graphics;
 public abstract class Model {
 
 	private static Random rand = new Random();
+	public static List<Color> prevColors = new ArrayList<Color>();
 	
 	public static Color generateColor() {
 		return Color.rgb(rand.nextInt(256), rand.nextInt(256), rand.nextInt(256));
